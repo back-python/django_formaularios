@@ -1,9 +1,14 @@
 {% extends 'base.html' %}
 {% block content %}
-{% include 'partials/_navbar.html' %}
+{% load widget_tweaks %}
 <form action="{% url 'revisao_consulta' %}" method="post">
     {% csrf_token %}
-    {{ form }}
+    {% for field in form.visible_fields %}
+    <div class="form-group">
+        <label for="{{ field.id_for_labe }}">{{ field.label }}</label>    
+        {{ field | add_class:'form-control'}}
+    </div>
+    {% endfor %}
     <input type="submit" value="Ok" class="btn btn-success">
 </form>
 {% endblock %}
