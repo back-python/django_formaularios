@@ -1,19 +1,28 @@
+from dataclasses import fields
 from datetime import datetime
 from django import forms
 from tempus_dominus.widgets import DatePicker
 from passagens.tipo_classe import tipos_classe
 from passagens.validation import *
+from passagens.models import Passagem, ClasseViagem, Pessoa
 from datetime import datetime
 
-class PassagemForms(forms.Form):
-    origem = forms.CharField(label='Origem', max_length=200)
-    destino = forms.CharField(label='Destino', max_length=200)
-    data_ida = forms.DateField(label='Data de ida', widget=DatePicker())
-    data_volta = forms.DateField(label='Data de volta', widget=DatePicker())
+class PessoaForms(forms.ModelForm):
+    class Meta:
+        model = Pessoa
+        exclude = ['nome']
+
+class PassagemForms(forms.ModelForm):
     data_pesquisa = forms.DateField(label='Data da pesquisa', disabled=True, initial=datetime.today)
-    tipo_classe = forms.ChoiceField(label='Tipo de vôo', choices=tipos_classe)
-    observacoes = forms.CharField(label='Observações', max_length=200, widget=forms.Textarea(), required=False)
-    email = forms.EmailField(label='Email', max_length=150)
+    
+    class Meta:
+        model = Passagem
+        fields = '__all__'
+        labels = {'data_ida':'Data de ida', 'data_volta':'Data de volta', 'informacoes':'Informações', 'classe_viagem':'Classe do vôo'}
+        widgets = {
+            'data_ida':DatePicker(),
+            'data_volta':DatePicker(),
+        }
 
     def clean(self):
         origem = self.cleaned_data.get('origem')
