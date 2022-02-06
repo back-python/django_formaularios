@@ -25,14 +25,14 @@ O projeto foi criado com as funcionalidades do Django, sem escrever código HTML
 - `Funcionalidade 3`: Exibição de mensagens de erro caso o usuário insira dados inválidos;
 - `Funcionalidade 4`: Uso do date picker para exibir formulários personalizados com calendário;
 
-Página com formulário:
+Página de compra da passagem:
+![Screenshot_20220206_113436](https://user-images.githubusercontent.com/27708175/152686047-d515bf62-94f0-4b8c-926b-5085ea58c6fc.png)
 
+Página exibindo erro de preenchimento ao usuário:
+![Screenshot_20220206_113558](https://user-images.githubusercontent.com/27708175/152686053-a0f93d10-bef4-4d73-9d9b-60dd5bac0dd3.png)
 
-Página de cadastro de receita:
-
-
-Págína de login:
-
+Página de captura das informações enviadas ao formulário:
+![Screenshot_20220206_113656](https://user-images.githubusercontent.com/27708175/152686056-8f2d2f8c-032a-4ac7-87b8-c6e8aa3d6780.png)
 
 ## Acesso ao Projeto
 
